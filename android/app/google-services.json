@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1029519223565",
+    "project_id": "firstpoject-931d4",
+    "storage_bucket": "firstpoject-931d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029519223565:android:d1f8bb8527c588ea56de44",
+        "android_client_info": {
+          "package_name": "com.example.minimalis_ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029519223565-d3ec246qmddlpdmfbolmdejjo1rusmfn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK9WlbeT1UG3lGbrcd8wy6yW2TGPjf3Bs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029519223565-d3ec246qmddlpdmfbolmdejjo1rusmfn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
