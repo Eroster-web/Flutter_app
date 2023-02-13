@@ -194,13 +194,20 @@ class _RegisterPageState extends State<RegisterPage> {
                     controller: _confirmpasswordController,
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Constants.white),
-                          borderRadius:
-                              BorderRadius.circular(Constants.circleRadius)),
+                        borderSide: BorderSide(
+                          color: Constants.white,
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
+                        ),
+                      ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Constants.DpPurple),
-                        borderRadius:
-                            BorderRadius.circular(Constants.circleRadius),
+                        borderSide: BorderSide(
+                          color: Constants.DpPurple,
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
+                        ),
                       ),
                       hintText: Constants.pw_conf,
                       fillColor: Colors.grey[200],
