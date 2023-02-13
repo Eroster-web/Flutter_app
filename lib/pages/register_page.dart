@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'consts.dart';
 
 class RegisterPage extends StatefulWidget {
   final VoidCallback showLoginPage;
@@ -48,141 +49,185 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[200],
-        body: SafeArea(
-          child: Center(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.android,
-                    size: 100,
-                  ),
-                  //greetings
-                  SizedBox(
-                    height: 10,
-                  ),
+      backgroundColor: Colors.grey[200],
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.android,
+                  size: Constants.icon_size,
+                ),
+                //greetings
+                SizedBox(
+                  height: Constants.height,
+                ),
 
-                  Text(
-                    'Hello There!',
-                    style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                Text(
+                  Constants.greet,
+                  style: TextStyle(
+                    fontSize: Constants.fontSize + 26,
+                    fontWeight: FontWeight.bold,
                   ),
-                  SizedBox(
-                    height: 10,
+                ),
+                SizedBox(
+                  height: Constants.height,
+                ),
+                Text(
+                  Constants.reg_inf,
+                  style: TextStyle(
+                    fontSize: Constants.fontSize + 4,
                   ),
-                  Text(
-                    'Register below with your details!',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
+                ),
+                SizedBox(
+                  height: Constants.height + 40,
+                ),
+                //email
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Constants.padding,
                   ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  //email
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: TextField(
-                      controller: _emailController,
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(12)),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepPurple),
-                          borderRadius: BorderRadius.circular(12),
+                  child: TextField(
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Constants.white,
                         ),
-                        hintText: 'Email',
-                        fillColor: Colors.grey[200],
-                        filled: true,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: TextField(
-                      obscureText: true,
-                      controller: _passwordController,
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(12)),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepPurple),
-                          borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
                         ),
-                        hintText: 'Password',
-                        fillColor: Colors.grey[200],
-                        filled: true,
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 10), //password confirm field
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: TextField(
-                      obscureText: true,
-                      controller: _confirmpasswordController,
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(12)),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepPurple),
-                          borderRadius: BorderRadius.circular(12),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Constants.DpPurple,
                         ),
-                        hintText: 'Confirm Password',
-                        fillColor: Colors.grey[200],
-                        filled: true,
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
+                        ),
                       ),
+                      hintText: Constants.email,
+                      fillColor: Colors.grey[200],
+                      filled: true,
                     ),
                   ),
-                  SizedBox(height: 10),
-                  //button
-                  Padding(
-                    //SIGN IN BUTTON
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: GestureDetector(
-                      onTap: signUp,
-                      child: Container(
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                            color: Colors.blue[600],
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Center(
-                            child: Text(
-                          'Sign Up',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        )),
+                ),
+                SizedBox(
+                  height: Constants.height,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Constants.padding,
+                  ),
+                  child: TextField(
+                    obscureText: true,
+                    controller: _passwordController,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Constants.white),
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
+                        ),
                       ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Constants.DpPurple,
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
+                        ),
+                      ),
+                      hintText: Constants.pw,
+                      fillColor: Colors.grey[200],
+                      filled: true,
                     ),
                   ),
-                  SizedBox(height: 25),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Already a member?',
-                          style: TextStyle(fontWeight: FontWeight.bold)),
-                      GestureDetector(
-                        onTap: widget.showLoginPage,
-                        child: Text(' Login Now',
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold)),
-                      )
-                    ],
-                  )
-                ],
-              ),
+                ),
+                SizedBox(height: Constants.height), //password confirm field
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Constants.padding,
+                  ),
+                  child: TextField(
+                    obscureText: true,
+                    controller: _confirmpasswordController,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Constants.white),
+                          borderRadius:
+                              BorderRadius.circular(Constants.circleRadius)),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Constants.DpPurple),
+                        borderRadius:
+                            BorderRadius.circular(Constants.circleRadius),
+                      ),
+                      hintText: Constants.pw_conf,
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: Constants.height,
+                ),
+                //button
+                Padding(
+                  //SIGN IN BUTTON
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Constants.padding,
+                  ),
+                  child: GestureDetector(
+                    onTap: signUp,
+                    child: Container(
+                      padding: EdgeInsets.all(
+                        Constants.padding - 5,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.blue[600],
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
+                        ),
+                      ),
+                      child: Center(
+                          child: Text(
+                        Constants.regis,
+                        style: TextStyle(
+                            color: Constants.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: Constants.fontSize + 2),
+                      )),
+                    ),
+                  ),
+                ),
+                SizedBox(height: Constants.height + 15),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      Constants.alr_mem,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: widget.showLoginPage,
+                      child: Text(
+                        Constants.lgn_now,
+                        style: TextStyle(
+                          color: Constants.Blue,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ],
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:minimalis_ui/pages/consts.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({super.key});
@@ -23,8 +24,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       showDialog(
           context: context,
           builder: (context) {
-            return AlertDialog(
-              content: Text('Password reset link sent!'),
+            return const AlertDialog(
+              content: Text(Constants.pw_res_sent),
             );
           });
     } on FirebaseAuthException catch (e) {
@@ -49,43 +50,60 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: Constants.padding,
+            ),
             child: Text(
-              'Enter your email and we will send you a password reset link',
+              Constants.pw_res_inst,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(
+                fontSize: Constants.fontSize + 4,
+              ),
             ),
           ),
-          SizedBox(
-            height: 10,
+          const SizedBox(
+            height: Constants.height,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: Constants.padding,
+            ),
             child: TextField(
               controller: _emailController,
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white),
-                    borderRadius: BorderRadius.circular(12)),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.deepPurple),
-                  borderRadius: BorderRadius.circular(12),
+                  borderSide: const BorderSide(
+                    color: Constants.white,
+                  ),
+                  borderRadius: BorderRadius.circular(
+                    Constants.circleRadius,
+                  ),
                 ),
-                hintText: 'Email',
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(
+                    color: Constants.DpPurple,
+                  ),
+                  borderRadius: BorderRadius.circular(
+                    Constants.circleRadius,
+                  ),
+                ),
+                hintText: Constants.email,
                 fillColor: Colors.grey[200],
                 filled: true,
               ),
             ),
           ),
-          SizedBox(
-            height: 10,
+          const SizedBox(
+            height: Constants.height,
           ),
           MaterialButton(
             onPressed: passwordReset,
-            child: Text('Reset Password'),
             color: Colors.deepPurple[200],
-          )
+            child: const Text(
+              Constants.pw_res,
+            ),
+          ),
         ],
       ),
     );

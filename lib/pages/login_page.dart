@@ -2,7 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'consts.dart';
 import 'forgot_pw_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -36,147 +36,200 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[200],
-        body: SafeArea(
-          child: Center(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.android,
-                    size: 100,
-                  ),
-                  //greetings
-                  SizedBox(
-                    height: 10,
-                  ),
+      backgroundColor: Colors.grey[200],
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.android,
+                  size: Constants.icon_size,
+                ),
+                //greetings
+                SizedBox(
+                  height: Constants.height,
+                ),
 
-                  Text(
-                    'Hello Again!',
-                    style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                Text(
+                  Constants.greet2,
+                  style: TextStyle(
+                    fontSize: Constants.fontSize + 20,
+                    fontWeight: FontWeight.bold,
                   ),
-                  SizedBox(
-                    height: 10,
+                ),
+                SizedBox(
+                  height: Constants.height,
+                ),
+                Text(
+                  Constants.greet3,
+                  style: TextStyle(
+                    fontSize: Constants.fontSize + 4,
                   ),
-                  Text(
-                    'Welcome back you\'ve bee missed!',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
+                ),
+                SizedBox(
+                  height: Constants.height + 40,
+                ),
+                //email
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Constants.padding,
                   ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                  //email
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: TextField(
-                      controller: _emailController,
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(12)),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepPurple),
-                          borderRadius: BorderRadius.circular(12),
+                  child: TextField(
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Constants.white,
                         ),
-                        hintText: 'Email',
-                        fillColor: Colors.grey[200],
-                        filled: true,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Padding(
-                    //password
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: TextField(
-                      obscureText: true,
-                      controller: _passwordController,
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(12)),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.deepPurple),
-                          borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
                         ),
-                        hintText: 'Password',
-                        fillColor: Colors.grey[200],
-                        filled: true,
                       ),
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return ForgotPasswordPage();
-                                },
-                              ),
-                            );
-                          },
-                          child: Text('Forgot password?',
-                              style: TextStyle(
-                                  color: Colors.blue,
-                                  fontWeight: FontWeight.bold)),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Constants.DpPurple,
                         ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  //button
-                  Padding(
-                    //SIGN IN BUTTON
-                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                    child: GestureDetector(
-                      onTap: signIn,
-                      child: Container(
-                        padding: EdgeInsets.all(20),
-                        decoration: BoxDecoration(
-                            color: Colors.blue[600],
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Center(
-                            child: Text(
-                          'Sign In',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18),
-                        )),
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
+                        ),
                       ),
+                      hintText: Constants.email,
+                      fillColor: Colors.grey[200],
+                      filled: true,
                     ),
                   ),
-                  SizedBox(height: 25),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                ),
+                SizedBox(
+                  height: Constants.height,
+                ),
+                Padding(
+                  //password
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Constants.padding,
+                  ),
+                  child: TextField(
+                    obscureText: true,
+                    controller: _passwordController,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Constants.white,
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Constants.DpPurple,
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
+                        ),
+                      ),
+                      hintText: Constants.pw,
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: Constants.height,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Constants.padding - 1,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text('Not a member?',
-                          style: TextStyle(fontWeight: FontWeight.bold)),
                       GestureDetector(
-                        onTap: widget.showRegisterPage,
-                        child: Text(' Register Now',
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold)),
-                      )
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return ForgotPasswordPage();
+                              },
+                            ),
+                          );
+                        },
+                        child: Text(
+                          Constants.forg_pw,
+                          style: TextStyle(
+                            color: Constants.Blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
                     ],
-                  )
-                ],
-              ),
+                  ),
+                ),
+                SizedBox(
+                  height: Constants.height,
+                ),
+                //button
+                Padding(
+                  //SIGN IN BUTTON
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Constants.padding,
+                  ),
+                  child: GestureDetector(
+                    onTap: signIn,
+                    child: Container(
+                      padding: EdgeInsets.all(
+                        Constants.padding - 5,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.blue[600],
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
+                        ),
+                      ),
+                      child: Center(
+                        child: Text(
+                          Constants.sign,
+                          style: TextStyle(
+                            color: Constants.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: Constants.fontSize + 2,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: Constants.height + 15,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      Constants.no_mem,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: widget.showRegisterPage,
+                      child: Text(
+                        Constants.reg,
+                        style: TextStyle(
+                          color: Constants.Blue,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
