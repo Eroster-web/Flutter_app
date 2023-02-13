@@ -19,12 +19,18 @@ class _RegisterPageState extends State<RegisterPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmpasswordController = TextEditingController();
+  final _firstNameController = TextEditingController();
+  final _lastNameController = TextEditingController();
+  final _ageController = TextEditingController();
 
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
     _confirmpasswordController.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _ageController.dispose();
     super.dispose();
   }
 
@@ -83,6 +89,39 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 SizedBox(
                   height: Constants.height + 40,
+                ),
+                //first name textfield
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Constants.padding,
+                  ),
+                  child: TextField(
+                    controller: _firstNameController,
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Constants.white,
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
+                        ),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Constants.DpPurple,
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          Constants.circleRadius,
+                        ),
+                      ),
+                      hintText: Constants.fname,
+                      fillColor: Colors.grey[200],
+                      filled: true,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: Constants.height,
                 ),
                 //email
                 Padding(

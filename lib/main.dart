@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages, unused_import
+
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:minimalis_ui/auth/main_page.dart';
@@ -14,9 +16,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
-      home: MainPage(),
+      //routerConfig: router,
       debugShowCheckedModeBanner: false,
     );
   }

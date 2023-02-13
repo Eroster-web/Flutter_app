@@ -19,6 +19,7 @@ class Constants {
   static const String greet = "Hello There!";
   static const String lgn_now = " Login Now ";
   static const String greet2 = "Hello Again!";
+  // ignore: unnecessary_string_escapes
   static const String greet3 = "'Welcome back you\'ve bee missed!'";
   static const String pw = "Password";
   static const String forg_pw = "Forgot password?";
@@ -33,4 +34,6 @@ class Constants {
   static const String reg_inf = "Register below with your details!";
   static const String sgn_o = "Sign out";
   static const String sgn_as = "Signed in as: ";
+  static const String fname = "First Name";
+  static const String lname = "Last Name";
 }

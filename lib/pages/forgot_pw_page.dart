@@ -29,6 +29,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             );
           });
     } on FirebaseAuthException catch (e) {
+      // ignore: avoid_print
       print(e);
       showDialog(
           context: context,
